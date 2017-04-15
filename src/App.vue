@@ -1,6 +1,6 @@
 <template lang="pug">
   #app
-    img(src='./assets/logo.png')
+    img(src='https://smarquez-dev.github.io/platzimusic/dist/logo.png')
     h1 PlatziMusic
     h3 Selecciona el país para la lista de Artistas
     select(v-model="selectedCountry")
