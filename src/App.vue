@@ -5,7 +5,7 @@
     h3 Selecciona el país para la lista de Artistas
     select(v-model="selectedCountry")
       option(v-for="country in countries" v-bind:value="country.value") {{ country.name }}
-    h2.h2-list Lista de Artistas más escuchados en España
+    h2.h2-list Lista de Artistas más escuchados en {{ selectedCountry | capitalize }}
     spinner(v-show="loading")
     ul
       artist(v-for="artist in artists" v-bind:artist="artist" v-bind:key="artist.mbid")
@@ -48,6 +48,17 @@ export default {
           self.loading = false
           self.artists = artists
         })
+    }
+  },
+  filters: {
+    uppercase: function (str) {
+      return str.toUpperCase();
+    },
+    lowercase: function (str) {
+      return str.toLowerCase();
+    },
+    capitalize: function (str) {
+      return str[0].toUpperCase() + str.slice(1);
     }
   },
   mounted() {
